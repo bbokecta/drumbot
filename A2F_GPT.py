@@ -65,7 +65,7 @@ def get_response(prompt):
     messages = [
         {
             "role": "user",
-            "content": f"Imagine you are having a conversation. Answer questions as truthfully as possible getting your response and speaking style from the provided context, and speak conversationally, giving them cues or questions to respond to also. Answer as if you are the person in the provided context, using their writing style, their language, their structure, their tone and any abbreviations \n Context: {context_text} + \n Question: {prompt}",
+            "content": f"Imagine you are having a conversation. Answer questions as truthfully as possible getting your response and speaking style from the provided context, and speak conversationally, giving them cues or questions to respond to also. Use a maximum of forty-five words in your response. Answer as if you are the person in the provided context, using their writing style, their language, their structure, their tone and any abbreviations \n Context: {context_text} + \n Question: {prompt}",
         },
     ]
     
@@ -93,8 +93,8 @@ if __name__ == "__main__":
     while True:  # Keep the loop running indefinitely
         prompt = convert_speech_text()  # Get the speech-to-text result
 
-        if 'difference' in prompt:
-            print('difference')
+        # if 'difference' in prompt:
+        #     print('difference')
         
         # prompt = 'What is the difference between Egungun in Brazil and Egungun in Nigeria'
         if prompt:  # If speech is recognized
