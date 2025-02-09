@@ -108,11 +108,11 @@ if __name__ == "__main__":
 
             get_speech(answer)
 
-            # main('voices/audio.wav', '/World/audio2face/PlayerStreaming')
+            main('voices/audio.wav', '/World/audio2face/PlayerStreaming')
 
         else:
             print("Could not recognize speech. Please try again.")
-            # continue  # Continue to listen for speech again
+            continue  # Continue to listen for speech again
 
 
     
