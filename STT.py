@@ -1,8 +1,10 @@
 import speech_recognition as sr
+from OSC_Sender import send_dancemode
 
 def convert_speech_text():
     # Initialize recognizer
     r = sr.Recognizer()
+    send_dancemode()
 
     try:
         # Use microphone as the audio source

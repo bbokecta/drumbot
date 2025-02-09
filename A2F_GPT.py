@@ -1,6 +1,6 @@
 from openai import AzureOpenAI
 from csv import writer
-from gTTS import get_speech
+from TTS_elevenlabs import get_speech
 import os, faiss, pickle, time
 import streamlit as st
 import numpy as np
@@ -8,6 +8,7 @@ import pandas as pd
 from STT import convert_speech_text
 from pythonosc import udp_client
 from audio2face_streaming_utils import main
+from OSC_Sender import send_talkmode
 
 # Creates a ChatGPT client based on the key, endpoint and version details given below
 client = AzureOpenAI(
@@ -107,6 +108,7 @@ if __name__ == "__main__":
             print(f"ANSWER: {get_response(prompt)}\n")
 
             get_speech(answer)
+            send_talkmode()
 
             main('voices/audio.wav', '/World/audio2face/PlayerStreaming')
 

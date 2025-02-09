@@ -19,7 +19,6 @@ import soundfile
 import audio2face_pb2
 import audio2face_pb2_grpc
 
-
 def push_audio_track(url, audio_data, samplerate, instance_name):
     """
     This function pushes the whole audio track at once via PushAudioRequest()
