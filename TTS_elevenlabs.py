@@ -12,7 +12,7 @@ def get_speech(answer):
     audio = client.generate(
         text=answer,
         # need a voice id
-        voice="SDz4r4oXctbSY7uFIhY5",
+        voice="CwhRBWXzGAHq8TQ4Fs17",
         model="eleven_multilingual_v2",
     )
     # play(audio)
