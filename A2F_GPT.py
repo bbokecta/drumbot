@@ -1,6 +1,6 @@
 from openai import AzureOpenAI
 from csv import writer
-from TTS_elevenlabs import get_speech
+from gTTS import get_speech
 import os, faiss, pickle, time
 import streamlit as st
 import numpy as np
@@ -85,6 +85,8 @@ def get_response(prompt):
 
 if __name__ == "__main__":
     
+    # time.sleep(31.0)
+
     print("Hi! I am a chatbot.")
     prompt = ""
     prompt_index = -1
@@ -92,12 +94,9 @@ if __name__ == "__main__":
     print("Talk to me")
     
     while True:  # Keep the loop running indefinitely
-        prompt = convert_speech_text()  # Get the speech-to-text result
-
-        # if 'difference' in prompt:
-        #     print('difference')
+        # prompt = convert_speech_text(prompt_index)  # Get the speech-to-text result
         
-        # prompt = 'What is the difference between Egungun in Brazil and Egungun in Nigeria'
+        prompt = 'What is the sound of your favorite drum'
         if prompt:  # If speech is recognized
             prompt_index += 1
             print(f"YOU: {prompt}")
