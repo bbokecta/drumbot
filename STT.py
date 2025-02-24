@@ -1,13 +1,15 @@
 import speech_recognition as sr
 from OSC_Sender import send_dancemode
 
-def convert_speech_text(bubbles):
+def convert_speech_text(prompt_index):
     # Initialize recognizer
     r = sr.Recognizer()
-    if bubbles > 0:
+    # print(prompt_index)
+    if prompt_index > 0:
         send_dancemode()
 
     try:
+        
         # Use microphone as the audio source
         with sr.Microphone() as source:
             r.adjust_for_ambient_noise(source, duration=0.2)  # Adjust for ambient noise

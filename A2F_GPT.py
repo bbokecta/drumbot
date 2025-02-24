@@ -8,7 +8,7 @@ import pandas as pd
 from STT import convert_speech_text
 from pythonosc import udp_client
 from audio2face_streaming_utils import main
-from OSC_Sender import send_talkmode
+from OSC_Sender import send_talkmode, send_dancemode
 
 # Creates a ChatGPT client based on the key, endpoint and version details given below
 client = AzureOpenAI(
@@ -89,21 +89,29 @@ if __name__ == "__main__":
 
     print("Hi! I am a chatbot.")
     prompt = ""
-    prompt_index = -1
+    prompt_index = 0
     
     print("Talk to me")
     
     while True:  # Keep the loop running indefinitely
-        # prompt = convert_speech_text(prompt_index)  # Get the speech-to-text result
+        prompt = convert_speech_text(prompt_index)  # Get the speech-to-text result
         
-        prompt = 'What is the sound of your favorite drum'
+        # prompt = 'What is the sound of your favorite drum'
         if prompt:  # If speech is recognized
             prompt_index += 1
+
+            # if prompt_index > 0:
+            #     send_dancemode() 
+            
+            # if prompt_index > 0: #ONLY TO BE USED WITH PRE-TYPED PROMPT
+            #     send_dancemode() 
+
+            
             print(f"YOU: {prompt}")
             
             # Generate a response and proceed
             answer = get_response(prompt)
-            print(prompt_index)
+            # print(prompt_index)
             print(f"ANSWER: {get_response(prompt)}\n")
 
             get_speech(answer)
@@ -113,6 +121,7 @@ if __name__ == "__main__":
 
         else:
             print("Could not recognize speech. Please try again.")
+            send_dancemode()
             continue  # Continue to listen for speech again
 
 

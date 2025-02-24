@@ -112,7 +112,7 @@ def main(audio_file, prim_path):
     sleep_time = 2.0  # ADJUST
 
     # URL of the Audio2Face Streaming Audio Player server (where A2F App is running)
-    url = "10.106.32.183:50051"  # ADJUST
+    url = "10.106.32.163:50051"  # ADJUST
 
     # Local input WAV file path
     audio_fpath = audio_file
